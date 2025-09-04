@@ -9,6 +9,11 @@ class Sprite {
   constructor({ position, velocity, size, color = "red" }) {
     this.position = position;
     this.velocity = velocity;
+    this.attackBox = {
+        position:position,
+        width: 100,
+        height: 50
+    };
     this.lastkey;
     this.canJump = true;
     this.size = size;
@@ -22,6 +27,15 @@ class Sprite {
       this.size.width,
       this.size.height
     );
+
+    //attack box
+    ctx.fillStyle = "green";
+    ctx.fillRect(
+        this.attackBox.position.x,
+        this.attackBox.position.y,
+        this.attackBox.width,
+        this.attackBox.height
+    )
   }
   update() {
     this.draw();
@@ -147,6 +161,9 @@ function animate() {
   } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
     enemy.velocity.x = 5;
   }
+
+  //detect for collision
+  
 
 }
 animate();
