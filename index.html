@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-    <div class="maincontainer">
-        <div class="content">
-            <div class="playerH"></div>
-            <div class="timer"></div>
-            <div class="enemyH"></div>
+    <!-- main container -->
+    <div style="position: relative; display: inline-block;">
+        <!-- content -->
+        <div style="position:absolute;display: flex; width: 100%; align-items: center;padding: 20px;">
+            <!-- player health -->
+            <div style="background-color: yellow;height: 30px; width: 100%;"></div>
+            <!-- timer -->
+            <div style="background-color: red;height: 100px; width: 100px; flex-shrink: 0;"></div>
+            <!-- enemy health -->
+            <div style="background-color: yellow;height: 30px; width: 100%;"></div>
         </div>
+        <canvas></canvas>
     </div>
-    <canvas></canvas>
     <script src="index.js" type="module"></script>
 </body>
 </html>
