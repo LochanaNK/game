@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D RPG Fight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ui">
+    <div class="player-container">
+      <div class="label">Player</div>
+      <div class="playerH"></div>
+    </div>
+
+    <div class="timer-container">
+      <div class="timer">60</div>
+    </div>
+
+    <div class="enemy-container">
+      <div class="label">Enemy</div>
+      <div class="enemyH"></div>
+    </div>
+  </div>
+
+  <canvas></canvas>
+
+  <!-- Game Over Modal -->
+  <div id="gameOverModal" class="modal">
+    <div class="modal-content">
+      <p id="gameOverText">Game Over</p>
+      <button id="resetBtn">Restart</button>
+    </div>
+  </div>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

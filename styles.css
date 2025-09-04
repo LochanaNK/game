@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+canvas {
+  display: block;
+  background: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ui {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 10;
+}
+
+.player-container, .enemy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.playerH, .enemyH {
+  width: 200px;
+  height: 20px;
+  background: gray;
+  border: 1px solid #fff;
+}
+
+.playerH .bar, .enemyH .bar {
+  height: 100%;
+  width: 100%;
+  background: green;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.modal-content {
+  background: #222;
+  padding: 30px 50px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#resetBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: green;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#resetBtn:hover {
+  background: limegreen;
+}
