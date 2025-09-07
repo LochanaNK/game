@@ -26,7 +26,8 @@ const shop = new Sprite({
     height:canvas.height
   },
   imageSrc:"./assets/shop.png",
-  scale:2.75
+  scale:2.75,
+  framesMax:6
 })
 
 //Sprites
@@ -36,6 +37,40 @@ const player = new Fighter({
   size: { width: 50, height: 150 },
   color: "blue",
   offset: { x: 0, y: 0 },
+  imageSrc:"./assets/samuraiMack/Idle.png",
+  framesMax:8,
+  scale:2.5,
+  offset:{x:215,y:157},
+  sprites:{
+    idle:{
+      imageSrc:"./assets/samuraiMack/Idle.png",
+      framesMax:8
+    },
+    run:{
+      imageSrc:"./assets/samuraiMack/Run.png",
+      framesMax:8,
+    },
+    jump:{
+      imageSrc:"./assets/samuraiMack/Jump.png",
+      framesMax:2
+    },
+    fall:{
+      imageSrc:"./assets/samuraiMack/Fall.png",
+      framesMax:2 
+    },
+    attack1:{
+      imageSrc:"./assets/samuraiMack/Attack1.png",
+      framesMax:8
+    },
+    takeHit:{
+      imageSrc:"./assets/samuraiMack/Take Hit - white silhouette.png",
+      framesMax:3
+    },
+    death:{
+      imageSrc:"./assets/samuraiMack/Death.png",
+      framesMax:7
+    }
+  }
 });
 const enemy = new Fighter({
   position: { x: 700, y: 0 },
@@ -43,6 +78,8 @@ const enemy = new Fighter({
   size: { width: 50, height: 150 },
   color: "red",
   offset: { x: -100, y: 0 },
+  imageSrc:"./assets/kenji/Idle.png",
+  framesMax:4
 });
 
 //control keys
@@ -146,11 +183,23 @@ function animate() {
   enemy.update(ctx);
 
   //player movement
+
   player.velocity.x = 0;
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -5;
+    player.switchSprite('run');
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 5;
+    player.switchSprite('run');
+  }else{
+      player.switchSprite("idle");
+  }
+
+  //jumping
+  if(player.velocity.y<0){
+    player.switchSprite('jump');
+  }else if(player.velocity.y>0){
+    player.switchSprite('fall');
   }
 
   //enemy movement
