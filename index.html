@@ -14,12 +14,13 @@
       * {
         box-sizing: border-box;
         font-family: "Press Start 2P", cursive;
+        overflow: hidden;
       }
     </style>
   </head>
   <body>
     <!-- main container -->
-    <div style="position: relative; display: inline-block">
+    <div style="position: relative; display: inline-block; margin-left: 100px">
       <!-- content -->
       <div
         style="
@@ -120,7 +121,13 @@
       >
         Tie
       </div>
-      <canvas style=""></canvas>
+      <canvas
+        style="
+          display: block; 
+          margin-left: auto;
+          margin-right: auto;
+        "
+      ></canvas>
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
